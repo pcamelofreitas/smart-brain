@@ -4,7 +4,6 @@ import Logo from './components/Logo/Logo';
 import FindFaceInput from './components/FindFaceInput/FindFaceInput';
 import Rank from './components/Rank/Rank';
 import Particles from 'react-particles-js';
-
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Signin from './components/Singnin/Signin'
 import Register from './components/Register/Register'
@@ -79,7 +78,7 @@ class App extends Component {
 
     onButtonSubmit=()=>{
         this.setState({imageUrl: this.state.input});
-            fetch('http://localhost:3000/imageurl',{
+            fetch('https://boiling-inlet-53942.herokuapp.com/imageurl',{
                         method: 'post',
                         headers: {'Content-Type':'application/json'},
                         body: JSON.stringify({
@@ -89,7 +88,7 @@ class App extends Component {
             .then(response => response.json())
             .then(response => {
                 if(response){
-                    fetch('http://localhost:3000/image',{
+                    fetch('https://boiling-inlet-53942.herokuapp.com/image',{
                         method: 'put',
                         headers: {'Content-Type':'application/json'},
                         body: JSON.stringify({
@@ -125,83 +124,7 @@ class App extends Component {
                 <Particles className='particles'
                         params={particlesOptions}
                         />
-                {/* <Particles
-                    id="tsparticles"
-                    
-                    options={{
-                    
-                        fpsLimit: 120,
-                        interactivity: {
-                        events: {
-                            onClick: {
-                            enable: true,
-                            mode: "push",
-                            },
-                            onHover: {
-                            enable: false,
-                            mode: "repulse",
-                            },
-                            resize: true,
-                        },
-                        modes: {
-                            bubble: {
-                            distance: 400,
-                            duration: 2,
-                            opacity: 0.8,
-                            size: 40,
-                            },
-                            push: {
-                            quantity: 4,
-                            },
-                            repulse: {
-                            distance: 200,
-                            duration: 0.4,
-                            },
-                        },
-                        },
-                        particles: {
-                        color: {
-                            value: "#ffffff",
-                        },
-                        links: {
-                            color: "#ffffff",
-                            distance: 100,
-                            enable: true,
-                            opacity: 0.5,
-                            width: 0.5,
-                        },
-                        collisions: {
-                            enable: true,
-                        },
-                        move: {
-                            direction: "none",
-                            enable: true,
-                            outMode: "bounce",
-                            random: true,
-                            speed: 6,
-                            straight: false,
-                        },
-                        number: {
-                            density: {
-                            enable: true,
-                            area: 800,
-                            },
-                            value: 100,
-                        },
-                        opacity: {
-                            value: 0.4,
-                        },
-                        shape: {
-                            type: "circle",
-                        },
-                        size: {
-                            random: true,
-                            value: 2,
-                        },
-                        },
-                        
-                    }}
-                /> */}
+                
 
                 <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
                 

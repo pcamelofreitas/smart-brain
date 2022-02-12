@@ -22,7 +22,7 @@ class Register extends Component{
     }
     onSubmitRegister=(event)=>{
         event.preventDefault();
-        fetch('http://localhost:3000/register',{
+        fetch('https://boiling-inlet-53942.herokuapp.com/register',{
             method: 'post',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify({
@@ -35,7 +35,7 @@ class Register extends Component{
         .then(user => {
             if (user ){
                 this.props.loadUser(user)
-                this.props.onRouteChange('home');
+                this.props.onRouteChange('signin');
             }
         })
         
