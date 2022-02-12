@@ -1,5 +1,5 @@
 <h1>Smart Brain front-end</h1>
-<p> App where you put a foto and it detect face</p>
+
 
 
 <h2>Made with:</h2>
